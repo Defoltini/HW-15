@@ -1,6 +1,6 @@
 plugins {
     id 'java-library'
-            id "io.qameta.allure" version "2.11.2"
+    id "io.qameta.allure" version "2.11.2"
 
 }
 
@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation (
+    testImplementation(
             "com.codeborne:selenide:7.6.1",
             "org.junit.jupiter:junit-jupiter:5.10.1",
             "io.qameta.allure:allure-selenide:2.27.0",
