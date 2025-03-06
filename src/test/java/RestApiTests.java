@@ -30,7 +30,7 @@ public class RestApiTests extends TestBase {
         LombokModelJobData jobData = new LombokModelJobData();
         jobData.setName("morpheus");
         jobData.setJob("leader");
-        step("Make request", () ->
+        LombokModelJobData responseJobData =   step("Make request", () ->
                 given()
                         .body(jobData)
                         .contentType(JSON)
@@ -40,8 +40,8 @@ public class RestApiTests extends TestBase {
                         .spec(specWithCode201AndLogAll)
                         .extract().as(LombokModelJobData.class));
         step("Check response", () -> {
-            assertEquals("morpheus", jobData.getName());
-            assertEquals("leader", jobData.getJob());
+            assertEquals("morpheus", responseJobData.getName());
+            assertEquals("leader", responseJobData.getJob());
         });
     }
 
@@ -51,7 +51,7 @@ public class RestApiTests extends TestBase {
         LombokModelJobData jobData = new LombokModelJobData();
         jobData.setName("morpheus");
         jobData.setJob("zion resident");
-        step("Make request", () ->
+        LombokModelJobData responseJobData = step("Make request", () ->
                 given()
                         .body(jobData)
                         .contentType(JSON)
@@ -61,8 +61,8 @@ public class RestApiTests extends TestBase {
                         .spec(specWithCode200AndLogAll)
                         .extract().as(LombokModelJobData.class));
         step("Check response", () -> {
-            assertEquals("morpheus", jobData.getName());
-            assertEquals("zion resident", jobData.getJob());
+            assertEquals("morpheus", responseJobData.getName());
+            assertEquals("zion resident", responseJobData.getJob());
         });
     }
 
